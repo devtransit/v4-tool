@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>V4-TOOL</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type='text/javascript' src="js/jquery-2.1.1.min.js" ></script>
+<script type='text/javascript' src="js/tool.js" ></script>
+<script type='text/javascript' src="js/config.js" ></script>
+
+<script type='text/javascript' >
+	$controller = new ConfigLocal();
+</script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>V4-TOOL</h1>
+		<ul>
+		</ul>
+	</header>
+	
+	<div id="check_person" class="box">
+		<h2>基本設定</h2>
+		
+		<h3>手順1</h3>
+		<h4 class="mt20">config.json</h4>
+		
+		<dl>
+			<dt>self/config.jsonを選択してください。</dt>
+			<dd>
+				<input type="file" name="config_local" id="config_local_file" />
+			</dd>
+		</dl>
+
+		
+		<div id="inputs">
+			<h3>手順2</h3>
+			<p>必要箇所を設定してください。</p>
+		
+			
+			<h4 class="mt20">カラー</h4>
+			<div class="input-box">
+				<dl>
+					<dt>カラー設定</dt>
+					<dd>
+						<select name="shop_color" id="shop_color">
+							<option value="champagne">シャンパン</option>
+							<option value="tonic">トニック</option>
+							<option value="sesame">セサミ</option>
+							<option value="sakura">サクラ</option>
+							<option value="saffron">サフラン</option>
+							<option value="turmeric">ターメリック</option>
+							<option value="vanilla">バニラ</option>
+							<option value="marin">マリン</option>
+							<option value="laurier">ローリエ</option>
+							<option value="cumin">クミン</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+			<h4 class="mt20">フリック</h4>
+			<div class="input-box">
+				<dl>
+					<dt>スクロール</dt>
+					<dd>
+						<select name="flick_enable" id="flick_enable">
+							<option value="true">フリックにする</option>
+							<option value="false">スクロールにする</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+
+			<h4 class="mt20">情報ページ（バナー）</h4>
+			<div class="input-box">
+				<dl>
+					<dt>使用</dt>
+					<dd>
+						<select name="billboard_enable" id="billboard_enable">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>バナー</dt>
+					<dd class="after_clear">
+						<div id="billboard_banner_0" class="w_half float_left hide">
+							<h5>バナー1</h5>
+							<input type="hidden" class="billboard_banner_id" />
+							<dl>
+								<dt>バナー画像<br />
+								<span>
+									バナー画像のパスを入力してください。(self配下)<br />
+									<strong>billboard/001/banner.png</strong><br />
+								</span>
+								</dt>
+								<dd><input type="text" class="billboard_banner_banner" /></dd>
+							 </dl>
+							 <dl>
+								<dt>バナータイプ</dt>
+								<dd>
+									<select class="billboard_banner_type">
+										<option value="image">画像を表示</option>
+										<option value="page">ページを表示</option>
+										<option value="movie">サイネージを再生</option>
+										<option value="epark">Epark</option>
+										<option value="survey">アンケート表示</option>
+									</select>
+								</dd>
+							 </dl>
+							 <dl>
+								<dt>読み込みパス<br />
+								<span>
+									画像を表示する場合には画像のパスを入力してください。<br />
+									<strong>billboard/001/banner.png</strong>
+									<br />
+									<br />
+									ページを表示する場合には小カテゴリーコードを入力してください。<br　/>
+									<strong>311</strong>
+									<br />
+									<br />
+									サイネージを再生する場合には<strong>movie/roll.xml->roll->id</strong>を入力してください。<br />
+									<strong>5</strong>
+									<br />
+									<br />
+									Eparkの場合には入力不要です。<br />
+								</span>
+								</dt>
+								<dd>
+									<p id="billboard_banner_values">
+										<input type="text" class="billboard_banner_value billboard_banner_value_0" /><!--
+										--><button class="billboard_banner_value_add">画像追加</button>
+									</p>
+								</dd>
+							 </dl>
+							 <dl>
+								<dt>対象モード</dt>
+								<dd>
+									<p>
+										<label class="mb10"><input type="checkbox" name="billboard_banner_mode_all"  class="billboard_banner_mode_all" value="true" />全てのモードが対象</label><br />
+									</p>
+									<p id="billboard_banner_modes">
+										<input type="text" class="billboard_banner_mode min billboard_banner_mode_0" /><!--
+										--><button class="billboard_banner_mode_add">モード追加</button>
+									</p>
+								</dd>
+							</dl>
+							<p><button class="billboard_banner_delete red">×</button></p>
+						</div>
+						<button id="billboard_banner_add" class="green">バナー追加</button>
+					</dd>
+				</dl>
+			</div>
+
+
+			<h4 class="mt20">多言語</h4>
+			<div class="input-box">
+				<dl>
+					<dt>ボタン表示（言語変更画面を呼び出すボタン、V2デザインのみ表示に設定）</dt>
+					<dd>
+						<select name="language_button_enable" id="language_button_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>初期言語</dt>
+					<dd>
+						<select name="language_default" id="language_default">
+							<option value="jp">日本語</option>
+							<option value="en">英語</option>
+							<option value="ko">韓国語</option>
+							<option value="ch">简体字</option>
+							<option value="ch_tw">繁體字</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>使用言語</dt>
+					<dd>
+						<div id="languages">
+
+							<div class="input jp mb5">
+								<label class="w_min"><input type="checkbox" class="enable" value="jp">日本語</label>
+								<input type="hidden" class="id" value="jp" />
+								<input type="hidden" class="name" value="日本語" />
+								<input type="hidden" class="langfaile" value="jp.json" />
+								<input type="text" class="admessage" value="いらっしゃいませ" placeholder="いらっしゃいませ" />
+								<input type="text" class="loading" value="お待ちください" placeholder="お待ちください" />
+							</div>
+
+							<div class="input en mb5">
+								<label class="w_min"><input type="checkbox" class="enable" value="en">英語</label>
+								<input type="hidden" class="id" value="en" />
+								<input type="hidden" class="name" value="English" />
+								<input type="hidden" class="langfaile" value="en.json" />
+								<input type="text" class="admessage" value="Welcome!" />
+								<input type="text" class="loading" value="Please wait." />
+							</div>
+
+							<div class="input ko mb5">
+								<label class="w_min"><input type="checkbox" class="enable" value="ko">韓国語</label>
+								<input type="hidden" class="id" value="ko" />
+								<input type="hidden" class="name" value="한국어" />
+								<input type="hidden" class="langfaile" value="ko.json" />
+								<input type="text" class="admessage" value="어서오세요!" />
+								<input type="text" class="loading" value="기다려 주세요" />
+							</div>
+
+							<div class="input ch mb5">
+								<label class="w_min"><input type="checkbox" class="enable" value="ch">简体字</label>
+								<input type="hidden" class="id" value="ch" />
+								<input type="hidden" class="name" value="简体字" />
+								<input type="hidden" class="langfaile" value="ch.json" />
+								<input type="text" class="admessage" value="歡迎光臨!" />
+								<input type="text" class="loading" value="请您稍等" />
+							</div>
+
+							<div class="input ch_tw mb5">
+								<label class="w_min"><input type="checkbox" class="enable" value="ch_tw">繁體字</label>
+								<input type="hidden" class="id" value="ch_tw" />
+								<input type="hidden" class="name" value="繁體字" />
+								<input type="hidden" class="langfaile" value="ch_tw.json" />
+								<input type="text" class="admessage" value="欢迎光临!" />
+								<input type="text" class="loading" value="請稍等" />
+							</div>
+						</div>	
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">メッセージ</h4>
+			<div class="input-box">
+				<dl>
+					<dt>メッセージ画面の文字色</dt>
+					<dd>
+						<select name="message_text_class" id="message_text_class">
+							<option value="white">ホワイト</option>
+							<option value="black">ブラック</option>
+							<option value="brown">ブラウン</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+			<h4 class="mt20">注文確認</h4>
+			<div class="input-box">
+				<dl>
+					<dt>金額の表示</dt>
+					<dd>
+						<select name="order_confirm_total_price" id="order_confirm_total_price">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+			<h4 class="mt20">注文履歴</h4>
+			<div class="input-box">
+				<dl>
+					<dt>使用</dt>
+					<dd>
+						<select name="check_order_enable" id="check_order_enable">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>金額の表示</dt>
+					<dd>
+						<select name="check_order_price" id="check_order_price">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>提供済みの表示</dt>
+					<dd>
+						<select name="check_order_status" id="check_order_status">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>おかわりの表示</dt>
+					<dd>
+						<select name="check_order_refill" id="check_order_refill">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>合計金額の税表示</dt>
+					<dd>
+						<select name="check_order_total_include_tax" id="check_order_total_include_tax">
+							<option value="true">税込みに固定</option>
+							<option value="false">Sysの設定に順ずる</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+			<h4 class="mt20">割り勘</h4>
+			<div class="input-box">
+				<dl>
+					<dt>使用</dt>
+					<dd>
+						<select name="account_division_enable" id="account_division_enable">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">商品表示</h4>
+			<div class="input-box">
+				<dl>
+					<dt>画像タイプ</dt>
+					<dd>
+						<select name="product_type" id="product_type">
+							<option value=".png">PNG画像</option>
+							<option value=".jpg">JPG画像</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>金額表示方法<br />
+						<span>POSの金額と違う金額（税抜き）を金額として使用するかどうかです。</span>
+					</dt>
+					<dd>
+						<select name="product_option_price_text" id="product_option_price_text">
+							<option value="false">POSの金額を表示</option>
+							<option value="true">オプション表示文字を表示</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">メニュー表示</h4>
+			<div class="input-box">
+				<dl>
+					<dt>セレクトボタンの埋め込み<br />
+						<span>商品内にセレクトボタンを表示します。</span>
+					</dt>
+					<dd>
+						<p id="include_selects">
+							<input type="text" class="include_select_0 min hide" /><!--
+							--><button id="include_select_add">セレクトグループ追加</button>
+						</p>
+					</dd>
+				</dl>
+				<dl>
+					<dt>価格表示</dt>
+					<dd>
+						<select name="include_select_price" id="include_select_price">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+			
+			<h4 class="mt20">いらっしゃいませ画面</h4>
+			<div class="input-box">
+				<dl>
+					<dt>スタッフ呼び出しボタン</dt>
+					<dd>
+						<select name="welcome_staff_enable" id="welcome_staff_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>店舗メッセージ</dt>
+					<dd>
+						<select name="welcome_admessage_enable" id="welcome_admessage_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+			<h4 class="mt20">利用開始画面</h4>
+			<div class="input-box">
+				<dl>
+					<dt>表示</dt>
+					<dd>
+						<select name="login_enable" id="login_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>WIFI更新</dt>
+					<dd>
+						<select name="login_wlan_update_enable" id="login_wlan_update_enable">
+							<option value="true">更新する</option>
+							<option value="false">更新しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">トップ画面</h4>
+			<div class="input-box">
+				<dl>
+					<dt>画像タイプ</dt>
+					<dd>
+						<select name="fcate_image_type" id="fcate_image_type">
+							<option value=".png">PNG画像</option>
+							<option value=".jpg">JPG画像</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>おかわり</dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_refill_enable" id="fcate_refill_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>	
+						<div id="" class="input mb5">
+							<label class="w_min">ドリンク商品</label>
+							<select name="fcate_refill_drink" id="fcate_refill_drink">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+						<div id="" class="input mb5">
+							<label class="w_min">フード商品</label>
+							<select name="fcate_refill_food" id="fcate_refill_food">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+						<div id="" class="input mb5">
+							<label class="">カート表示
+								<span>商品選択後にカートを表示します。</span>
+							</label>
+							<select name="fcate_refill_order" id="fcate_refill_order">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>おすすめ</dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_reco_enable" id="fcate_reco_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>	
+						<div id="" class="input mb5">
+							<label class="w_min">小カテゴリーコード</label>
+							<input type="text" class="min" id="fcate_reco_code" />
+						</div>
+						<div id="" class="input mb5">
+							<label class="w_min">商品コード</label>
+							<p class="small">カテゴリーコードが未入力の場合に有効です。</p>
+							<p id="fcate_reco_items">
+								<input type="text" class="fcate_reco_item_0 min hide" /><!--
+								--><button id="fcate_reco_item_add">商品追加</button>
+							</p>
+						</div>
+						<div id="" class="input mb5">
+							<label class="">カート表示
+								<span>商品選択後にカートを表示します。</span>
+							</label>
+							<select name="fcate_reco_order" id="fcate_reco_order">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>トップへ戻るタイマー<br />
+					<span>一定時間無操作でトップ画面に戻ります。</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">使用</label>
+							<select name="fcate_timer_enable" id="fcate_timer_enable">
+								<option value="true">使用する</option>
+								<option value="false">使用しない</option>
+							</select>
+						</div>	
+						<div id="" class="input mb5">
+							<label class="w_min">無操作時間（秒）</label>
+							<input type="text" class="min" id="fcate_timer_time" />
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>多言語バー</dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_alternate_enable" id="fcate_alternate_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>商品検索ボタン（カテゴリーボタン）<br />
+					<span>商品検索ボタンをカテゴリーボタンの1つとして表示します。</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_search_enable" id="fcate_search_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+						<div id="" class="input mb5">
+							<label class="w_min"></label>
+							<label class="">
+								<input type="checkbox" value="false" id="fcate_search_navigate_enable">
+								フッターに検索ボタンを表示しない
+							</label>
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>スタッフ呼び出しボタン（カテゴリーボタン）<br />
+					<span>スタッフ呼び出しボタンをカテゴリーボタンの1つとして表示します。</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_staff_enable" id="fcate_staff_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+						<div id="" class="input mb5">
+							<label class="w_min"></label>
+							<label class="">
+								<input type="checkbox" value="false" id="fcate_staff_navigate_enable">
+								フッターにスタッフ呼び出しボタンを表示しない
+							</label>
+						</div>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt>バナー表示<br />
+					<span>店舗情報バナーをトップ画面に表示します。</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_banner_enable" id="fcate_banner_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+
+
+				<dl>
+					<dt>決済種別<br />
+					<span>決済情報アイコンをトップ画面に表示します。</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_payment_enable" id="fcate_payment_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+
+
+				<dl>
+					<dt>店舗メッセージ<br />
+					<span>寿司のみ</span></dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="fcate_admessage_enable" id="fcate_admessage_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">中カテゴリートップ</h4>
+			<div class="input-box">
+				<dl>
+					<dt>表示</dt>
+					<dd>
+						<select name="scategory_top_enable" id="scategory_top_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>画像タイプ</dt>
+					<dd>
+						<select name="scategory_image_type" id="scategory_image_type">
+							<option value=".png">PNG画像</option>
+							<option value=".jpg">JPG画像</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+
+			<h4 class="mt20">促しページ</h4>
+			<div class="input-box">
+				<dl>
+					<dt>表示</dt>
+					<dd>
+						<select name="first_category_enable" id="first_category_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>小カテゴリーコード<br />
+					<span>注文するボタンの押下後の遷移先です。</span></dt>
+					<dd>
+						<input type="text" class="min" id="first_category_code" />
+					</dd>
+				</dl>
+
+
+				<dl>
+					<dt>モード別</dt>
+					<dd class="after_clear">
+						
+						<div id="firstcategory_mode_0" class="w_half float_left hide">
+						<dl>
+							<dt>対象モード<br />
+							<span>対象のモードID</span></dt>
+							<dd>
+								<input type="text" class="min firstcategory_viewmode" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>表示画像<br />
+							<span>表示する画像です。（dinner_first_category.jpg）</span></dt>
+							<dd>
+								<input type="text" class="min firstcategory_image" />
+							</dd>
+						</dl>
+						<dl>
+							<dt>小カテゴリーコード<br />
+							<span>注文するボタンの押下後の遷移先です。</span></dt>
+							<dd>
+								<input type="text" class="min firstcategory_code" />
+							</dd>
+						</dl>
+
+						<p><button class="firstcategory_delete red">×</button></p>
+						</div>
+
+						<button id="firstcategory_add" class="green">バナー追加</button>
+					</dd>
+				</dl>
+
+			</div>
+
+
+			<h4 class="mt20">商品検索</h4>
+			<div class="input-box">
+				<dl>
+					<dt>表示</dt>
+					<dd>
+						<select name="search_enable" id="search_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<!-- <dl> //Fcategoryで行う
+					<dt>検索ボタン<br />
+					<span>商品検索ボタンを有効化します。トップ画面で商品検索ボタンを有効にした場合に表示しないにするとボタンが重複しません。</span></dt>
+					<dd>
+						<select name="search_btn_enable" id="search_btn_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl> -->
+				<dl>
+					<dt>番号検索</dt>
+					<dd>
+						<select name="search_number" id="search_number">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+					<dt class="mt10">番号検索方法<br>
+					<span>商品番号を完全一致で検索するかどうかです。</span></dt>
+					<dd>
+						<select name="search_number_match" id="search_number_match">
+							<option value="true">完全一致</option>
+							<option value="false">前方一致</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>頭文字検索</dt>
+					<dd>
+						<select name="search_hiragana" id="search_hiragana">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>頭文字検索を50音にする</dt>
+					<dd>
+						<select name="search_hiragana_50" id="search_hiragana_50">
+							<option value="true">50音入力</option>
+							<option value="false">タップ入力</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>検索ボタン<br />
+					<span>番号・頭文字を入力後に検索ボタンを押してからリストを表示します。</span></dt>
+					<dd>
+						<select name="search_search_btn" id="search_search_btn">
+							<option value="true">使用する</option>
+							<option value="false">使用しない</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+
+			<h4 class="mt20">クレードル警告</h4>
+			<div class="input-box">
+				<dl>
+					<dt>表示</dt>
+					<dd>
+						<select name="batt_alert_enable" id="batt_alert_enable">
+							<option value="true">表示する</option>
+							<option value="false">表示しない</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>警告時間（秒）</dt>
+					<dd>
+						<input type="number" class="" id="batt_alert_interval" />
+					</dd>
+				</dl>
+			</div>
+			
+			
+			<h4 class="mt20">ナビゲーション</h4>
+			<div class="input-box">
+				<dl>
+					<dt>メニュー画面の右上ボタン（寿司）</dt>
+					<dd>
+						<select name="navigation_viewmenu_rightbutton" id="navigation_viewmenu_rightbutton">
+							<option value="staff">スタッフ呼び出しボタン</option>
+							<option value="checkorder">注文確認ボタン</option>
+							<option value="search">検索ボタン</option>
+							<option value="accounting">会計ボタン</option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+
+
+			<h4 class="mt20">クーポン</h4>
+			<div class="input-box">
+				<dl>
+					<dt>クーポンボタン</dt>
+					<dd class="after_clear">
+						<div id="" class="input mb5">
+							<label class="w_min">表示</label>
+							<select name="coupon_enable" id="coupon_enable">
+								<option value="true">表示する</option>
+								<option value="false">表示しない</option>
+							</select>
+						</div>
+					</dd>
+				</dl>
+			</div>
+
+
+			<p class="center-btn">
+				<button id="create_data">生成</button>
+			</p>
+			
+			
+			<div class="output box">
+				<h3>config.json</h3>
+				<textarea name="" id="JSON_out" cols="30" rows="10"></textarea>
+			</div>
+
+			<div class="output box">
+				<p class="center-btn"><a id="download" href="#"><button>ダウンロード</button></a></p>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

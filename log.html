@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="Shift-JIS">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>V4-TOOL</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type='text/javascript' src="js/jquery-2.1.1.min.js" ></script>
+<script type='text/javascript' src="js/log.js" ></script>
+
+<script type='text/javascript' >
+	$controller = new Log();
+</script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>V4-TOOL</h1>
+		<ul>
+		</ul>
+	</header>
+	
+	
+	<div class="box">
+		<h3>手順1</h3>
+		<h4>CSV</h4>
+		<dl>
+			<dt>ログファイル</dt>
+			<dd>
+				<input type="file" name="xml_local" id="xml_local_file" multiple />
+			</dd>
+		</dl>
+
+	</div>	
+
+
+	<div id="inputs" class="box">
+		
+		<p class="center-btn mt20">
+			<button id="create_data">生成</button>
+		</p>
+
+		<div class="output box">
+			<p>EmMrt/配下に配置してください。</p>
+			<textarea name="" id="XML_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="xml_download"><button>ダウンロード</button></a></p>
+		</div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>V4-TOOL</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type='text/javascript' src="js/jquery-2.1.1.min.js" ></script>
+<script type='text/javascript' src="js/coupon.js" ></script>
+<script type='text/javascript' src="js/jquery.qrcode.min.js" ></script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>V4-TOOL</h1>
+		<ul>
+		</ul>
+	</header>
+
+
+	<div id="inputs" class="box">
+		<h3>値引きクーポン用QRコード生成</h3>
+		<h4>セルフレジでの値引き用のQRコードになります。</h4>
+
+		<dl>
+			<dt>クーポンID<br>
+				<span>ユニークな数値を入力してください</span></dt>
+			<dd>
+				<input type="text" name="coupon_id" id="coupon_id">
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>値引区分</dt>
+			<dd>
+				<select name="coupon_kubun" id="coupon_kubun">
+					<option value="0">値引（金額）</option>
+					<option value="1">割引（率）</option>
+				</select>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>値引金額・値引率</dt>
+			<dd>
+				<input type="text" name="coupon_num" id="coupon_num">
+				<span id="coupon_num_unit">円</span>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>有効期限</dt>
+			<dd>
+				<select name="coupon_year" id="coupon_year"></select>
+				<span>年</span>
+				<select name="coupon_month" id="coupon_month"></select>
+				<span>月</span>
+				<select name="coupon_day" id="coupon_day"></select>
+				<span>日</span>
+			</dd>
+		</dl>
+
+
+		<dl>
+			<dt>仕様コード<br>
+				<span>POSの仕様コードを設定してください</span></dt>
+			<dd>
+				<input type="text" name="coupon_code" id="coupon_code">
+			</dd>
+		</dl>
+
+
+		<p class="center-btn">
+			<button id="create_data">生成</button>
+		</p>
+
+
+		<div class="output box center-btn" style="padding:0;">
+			<div id="qrcode" class="m10"></div>
+			<input type="text" class="large" id="output_text">
+			<p class="center-btn"><a href="#" id="download"><button>ダウンロード</button></a></p>
+		</div>
+
+	</div>
+
+</body>
+</html>

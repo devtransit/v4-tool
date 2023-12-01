@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>V4-TOOL</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type='text/javascript' src="js/jquery-2.1.1.min.js" ></script>
+<script type='text/javascript' src="js/tool.js" ></script>
+
+<script type='text/javascript' >
+	$controller = new CheckPerson();
+</script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>V4-TOOL</h1>
+		<ul>
+		</ul>
+	</header>
+	
+	
+	<div class="box">
+		<h3>手順1</h3>
+		<h4>CheckPerson.xml</h4>
+		<dl>
+			<dt>EmMrt/CheckPerson.xmlを選択してください。</dt>
+			<dd>
+				<input type="file" name="xml_local" id="xml_local_file" />
+			</dd>
+		</dl>
+
+		<h4>language(jp,ko,ch...).json</h4>
+		<dl>
+			<dt>self/language/shop/(jp,ko,ch...).jsonを全て選択してください。</dt>
+			<dt>language.json</dt>
+			<dd class="mb10">
+				<input type="file" name="json_jp_local" id="" class="json_local_file" multiple />
+			</dd>
+		</dl>
+	</div>	
+
+
+	<div id="inputs" class="box">
+		<h3>手順2</h3>
+		<h4>人数チェック設定</h4>
+
+		<table>
+			<thead>
+				<tr>
+					<th>名前</th>
+					<th>チェック対象</th>
+					<th>チェック数量</th>
+					<th>注文ごとにチェック</th>
+					<th>以下か丁度か以上か</th>
+					<th>対象モード</th>
+					<th>警告メッセージ</th>
+					<th>カートを開く</th>
+					<th>削除</th>
+				</tr>
+			</thead>
+			<tbody id="xmllist"></tbody>
+		</table>
+		
+		<hr class="mt20" />
+		<h4>新規追加</h4>
+		<input type="hidden" name="check_person_id" id="check_person_id" class="min" />
+
+		<dl>
+			<dt>
+				名称<br />
+				<span>オーサリングツールに表示される名称です。</span>
+			</dt>
+			<dd>
+				<input type="text" name="check_person_name" id="check_person_name" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>チェック対象</dt>
+			<dd>
+				<select name="check_person_type" id="check_person_type">
+					<option value="person">チェックイン人数に対して</option>
+					<option value="group">テーブルに対して</option>
+					<option value="item">商品に対して</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>チェック数量</dt>
+			<dd>
+				<input type="number" name="check_person_value" id="check_person_value" class="min" />
+				<label id="check_person_value_person_name">
+					<input type="checkbox" name="check_person_value_person"  id="check_person_value_person" value="true" />お一人様あたり
+				</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				注文ごとにチェックする<br />
+				<span>伝票毎の場合には指定数量に達するとその後注文できません。</span>
+			</dt>
+			<dd>
+				<select name="check_person_order" id="check_person_order">
+					<option value="order">注文毎にチェック</option>
+					<option value="slip">伝票毎にチェック</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				以下か丁度か以上か<br />
+				<span>伝票毎にチェックする場合には以下、丁度を選択してください。</span>
+			</dt>
+			<dd>
+				<select name="check_person_fix" id="check_person_fix">
+					<option value="0">以下</option>
+					<option value="1">丁度</option>
+					<option value="2">以上</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				対象モード<br />
+				<span>全て対象の場合には入力</span>
+			</dt>
+			<dd>
+				<p>
+					<label class="mb10"><input type="checkbox" name="check_person_mode_all"  id="check_person_mode_all" />全てのモードが対象</label><br />
+				</p>
+				<p id="check_person_modes">
+					<input type="text" class="check_person_mode min" id="check_person_mode_0" /><!--
+					--><button id="check_person_mode_add">モード追加</button>
+				</p>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>
+				警告メッセージ<br />
+				<span>改行コードは&lt;br&gt;です。</span>
+			</dt>
+			<dd>
+				<div id="" class="input mb5">
+					<label class="w_min">日本語</label>
+					<input type="text" class="msg_jp large" id="msg_jp" />
+				</div>	
+				<div id="" class="input mb5">
+					<label class="w_min">英語</label>
+					<input type="text" class="msg_en large" id="msg_en" />
+				</div>	
+				<div id="" class="input mb5">
+					<label class="w_min">韓国語</label>
+					<input type="text" class="msg_ko large" id="msg_ko" />
+				</div>	
+				<div id="" class="input mb5">
+					<label class="w_min">简体字</label>
+					<input type="text" class="msg_ch large" id="msg_ch" />
+				</div>	
+				<div id="" class="input mb5">
+					<label class="w_min">繁體字</label>
+					<input type="text" class="msg_ch_tw large" id="msg_ch_tw" />
+				</div>	
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>
+				カートを開く<br />
+				<span>エラーメッセージ表示後にカートを開きます。</span>
+			</dt>
+			<dd>
+				<select name="check_person_cart" id="check_person_cart">
+					<option value="true">開く</option>
+					<option value="false">開かない</option>
+				</select>
+			</dd>
+		</dl>
+		
+		<p class="center-btn">
+			<button id="data_add" class="green big">追加</button>
+		</p>
+		
+		<hr class="mt20 mb20" />
+
+		<p class="center-btn mt20">
+			<button id="create_data">生成</button>
+		</p>
+
+
+
+		<div class="output box">
+			<h3>CheckPerson.xml</h3>
+			<p>EmMrt/配下に配置してください。</p>
+			<textarea name="" id="XML_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="xml_download"><button>ダウンロード</button></a></p>
+		</div>
+
+		<hr />
+		
+		<div class="output box">
+			<h3>language(jp,ko,ch...).json</h3>
+			<p>self/language/shop/配下に配置してください。</p>
+			<h5>日本語</h5>
+			<textarea name="" id="JSON_jp_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="json_jp_download"><button>日本語ダウンロード</button></a></p>
+
+			<h5>英語</h5>
+			<textarea name="" id="JSON_en_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="json_en_download"><button>英語ダウンロード</button></a></p>
+
+			<h5>韓国語</h5>
+			<textarea name="" id="JSON_ko_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="json_ko_download"><button>韓国語ダウンロード</button></a></p>
+
+			<h5>简体字</h5>
+			<textarea name="" id="JSON_ch_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="json_ch_download"><button>简体字ダウンロード</button></a></p>
+
+			<h5>繁體字</h5>
+			<textarea name="" id="JSON_ch_tw_out" cols="30" rows="10"></textarea>
+			<p class="center-btn"><a href="#" id="json_ch_tw_download"><button>繁體字ダウンロード</button></a></p>
+		</div>
+	</div>
+
+</body>
+</html>
