@@ -1,0 +1,794 @@
+@charset "utf-8";
+/* */
+/**/
+
+/* =Reset
+-------------------------------------------------------------- */
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    outline:0;
+    border:0;
+    background:transparent;
+    list-style:none;
+    /* font-size:100%; */
+    vertical-align:middle;
+    text-decoration:none;
+}
+
+body {
+    line-height:1.5;
+    font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	/*font-weight:normal;*/
+}
+p, dt, dd, li {
+	/* word-wrap:break-word */
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    background:transparent;
+    vertical-align:baseline;
+    font-size:100%;
+}
+a:hover {
+	color:#999;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-weight:bold; 
+    font-style:italic;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    margin:1.2em 0 1em;
+    margin-bottom:11px;
+    padding:0;
+	width:100%;
+    height:1px;
+    border:0;
+	border-bottom:1px dashed #999;
+	background:none;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.clear {
+	clear:both;
+}
+
+p {
+	font-size: 14px;
+	margin-bottom:10px;
+}
+
+p.small {
+    font-size: 12px;
+}
+p.big {
+    font-size: 16px;
+}
+
+span {
+	vertical-align: baseline;
+}
+
+strong {
+	vertical-align: baseline;
+}
+
+table  {
+    border: 1px #E3E3E3 solid;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 5px;
+    border: #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+    background: #444444;
+    color:#fff;
+    /*line-height: 120%;*/
+    text-align: center;
+    font-weight: bold;
+}
+table td {
+    padding: 5px;
+    border: 1px #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+    text-align: center;
+}
+
+dl {
+
+}
+dt, dd {
+	display:inline-block;
+}
+dl dt {
+	margin-right:5px;
+}
+dl dd {
+	margin-right:15px;
+}
+
+ul.list li {
+	padding:8px 0;
+	border-bottom:1px dotted #95aab3;
+}
+ul.list li:last-child {
+	padding:8px 0;
+	border-bottom:0px;
+}
+ul.list li label {
+	display:inline-block;
+	width:150px;
+}
+ul.list li label.w50 {
+	width:50px;
+}
+ul.list li label.w80 {
+	width:80px;
+}
+ul.list li label.w200 {
+	width:200px;
+}
+ul.list li label.w400 {
+	width:400px;
+}
+ul.list li label.auto {
+	margin-right:20px;
+	width:auto;
+}
+
+ul.tile li {
+	display:inline-block;
+	margin-right:15px;
+}
+ul.list.tile li:last-child {
+	padding:8px 0;
+	border-bottom:1px dotted #95aab3;
+}
+
+.float-left {
+	float:left;
+}
+
+.float-right {
+	float:right;
+}
+
+
+/* =FORM
+-------------------------------------------------------------- */
+
+button, input, select, textarea {
+	margin: 0;
+	vertical-align: baseline;
+	font-size: 100%;
+}
+button, label, input, select, textarea {
+	font-size: 13px;
+	font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	line-height: normal;
+}
+input, textarea, select {
+	display: inline-block;
+	margin-right: 2px;
+	border: 1px solid #CCCCCC;
+	border-radius: 3px 3px 3px 3px;
+	color: #000000;
+	/*font-size: 12px;
+	height: 18px;
+	line-height: 18px;*/
+	padding: 4px;
+}
+input[type=text][disabled="disabled"],
+input[type=text]:disabled {
+	color:#000;
+}
+
+select, input[type="file"] {
+	height: 27px;
+	line-height: 27px;
+}
+select {
+	height: 30px;
+}
+input[type=text],
+input[type=tel],
+input[type=number],
+input[type=password],
+input[type=email] {
+	width:200px;
+	padding:6px;
+}
+textarea:focus,
+input[type=text]:focus,
+input[type=text].onfocus,
+input[type=number]:focus,
+input[type=number].onfocus {
+	border:1px solid #33ccff;
+	color: #373737;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	margin:2px 4px 2px 2px;
+	vertical-align: baseline;
+}
+input[type=text].min,
+input[type=tel].min,
+input[type=number].min,
+input[type=password].min {
+	width:100px;
+}
+input[type=text].large,
+input[type=tel].large,
+input[type=number].large,
+input[type=password].large {
+	width:500px;
+}
+textarea {
+	height:100px;
+	width:80%;
+	ime-mode: active;
+}
+textarea.large {
+	height:300px;
+	width:80%;
+}
+
+.imeoff {
+	ime-mode: disabled;
+}
+.imeon {
+	ime-mode: active;
+}
+
+::-webkit-input-placeholder  { color:#999; }
+input:-moz-placeholder { color:#999; }
+
+
+/* =BUTTON
+-------------------------------------------------------------- */
+
+button, 
+input[type=button],  
+input[type=reset],
+input[type=submit] {
+	padding: 6px 18px 5px;
+	min-width: 70px;
+	border:none;
+	background-color:#265CFF;
+	-webkit-box-shadow:0px 0px 1px rgba(000,000,000,0.2);
+	-moz-box-shadow:0px 0px 1px rgba(000,000,000,0.2);
+	box-shadow: 0px 0px 1px rgba(000,000,000,0.2);
+	color: #FFFFFF;
+	font-size:13px;
+	cursor: pointer;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+button:hover, 
+input[type=button]:hover,  
+input[type=reset]:hover,
+input[type=submit]:hover {
+	background-color:#5580FF;
+}
+button:active,
+input[type=button]:active,  
+input[type=reset]:active,
+input[type=submit]:active {  
+	background-color:#265CFF;
+}
+
+button.selected {
+	background-color:#73B9FF;
+}
+button.selected:hover {
+	background-color:#A2D0FF;
+}
+
+button:disabled {
+	pointer-events:none;
+	background-color:#888888;
+}
+
+button.red {
+	background-color:#FF4D4D;
+	color:#fff !important;
+}
+button.red:hover {
+	background-color:#FF8484;
+}
+
+button.white {
+	background-color:#ddd;
+	color:#000;
+}
+button.white:hover {
+	background-color:#eee;
+}
+
+
+button.gray {
+	background-color:#999999;
+	color:#ffffff !important;
+}
+button.gray:hover {
+	background-color:#CCCCCC;
+	color:#ffffff;
+}
+button.gray.selected {
+	background-color:#FBFCFD;
+	color:#2693FF;
+}
+button.gray.selected:hover {
+	background-color:#E6ECF2;
+}
+
+button.black {
+	background-color:#000000;
+}
+button.black:hover {
+	background-color:#444444;
+}
+
+button.green {
+	background-color:#2DB200;
+	color:#fff !important;
+}
+button.green:hover {
+	background-color:#6DD900;
+}
+button.green.selected {
+	background-color:#9ce246;
+	color: #fff;
+}
+button.green.selected:hover {
+	background-color:#b4f269;
+}
+
+button.orange {
+	background-color:#FF9900;
+	color:#ffffff !important;
+}
+button.orange:hover {
+	background-color:#ffc46b;
+}
+
+button.skyblue {
+	background-color:#00a9e7;
+}
+button.skyblue:hover {
+	background-color:#00bbff;
+}
+button.skyblue.selected {
+	background-color:#1ab5fd;
+	color: #fff;
+}
+button.skyblue.selected:hover {
+	background-color:#5ccbff;
+}
+
+button.purple {
+	background-color:#8E6CB7;
+}
+button.purple:hover {
+	background-color:#c29cef;
+}
+
+button.next:before {
+	float:right;
+	margin:5px 0 0 6px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 10px solid #FFFFFF;
+	content:'';
+}
+button.prev:before {
+	float:left;
+	margin:5px 6px 0 0;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-right: 10px solid #FFFFFF;
+	border-bottom: 5px solid transparent;
+	content:'';
+}
+button.min {
+	padding: 3px 8px 2px;
+	font-size:12px;
+}
+button.big {
+	padding: 10px 18px 9px;
+	font-size:16px;
+}
+button.circle {
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-indent:-3000px;
+	min-width:30px;
+	padding:4px;
+}
+
+.back-btn {
+	height:50px;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow: none;
+	color:#fff;
+	text-indent:30px;
+}
+.back-btn:hover {
+	background-color:transparent;
+	color:#CCC;
+}
+
+.add-btn {
+	height:30px;
+	color:#fff;
+	text-indent:30px;
+}
+.add-btn:hover {
+	background-color:#666;
+	color:#CCC;
+}
+
+
+.center-btn {
+	margin:12px 0;
+	width:100%;
+	text-align:center;
+}
+.center-btn button {
+	display:inline-block;
+	margin:0 10px;
+}
+
+.right-btn {
+	position: absolute;
+	top:10px;
+	right:10px;
+	display: block;
+}
+.right-btn button {
+	position: relative;
+	display:inline-block;
+	margin:0 0 0 10px;
+	vertical-align: middle;
+}
+
+.tab {
+	margin:1px 0;
+	padding:0 15px;
+	border-bottom:1px solid #999;
+}
+.tab button {
+	margin-right:5px;
+	padding:10px 15px;
+}
+
+.submenu {
+	margin:1px 0;
+	padding:0 15px;
+	border-bottom:1px solid #999;
+}
+.submenu button {
+	margin-top:2px;
+	margin-right:5px;
+	padding:4px 10px;
+}
+
+button.status {
+	margin:0 2px;
+	border-radius:16px;
+	font-size: 10px;
+}
+
+button.edit-btn {
+	min-width: 70px;
+}
+
+
+/* =COMMON
+-------------------------------------------------------------- */
+.clear {
+	clear:both;
+}
+
+.wrapper {
+	position:relative;
+}
+
+.red { color:#f00 !important; }
+.orange { color:#FF9900 !important; }
+.green { color:#228b22 !important; }
+.blue { color:#4DA6FF !important; }
+.pink { color:#F76AAA !important; }
+.gray { color:#999999 !important; }
+.dark { color:#666666 !important; }
+
+
+.m10 {
+	margin:10px  !important;
+}
+.m15 {
+	margin:15px  !important;
+}
+
+.mt0 {
+	margin-top:0px  !important;
+}
+.mt10 {
+	margin-top:10px  !important;
+}
+.mt15 {
+	margin-top:15px !important;
+}
+.mt20 {
+	margin-top:20px !important;
+}
+.mt30 {
+	margin-top:30px !important;
+}
+
+.mb0 {
+	margin-bottom:0px !important;
+}
+.mb5 {
+	margin-bottom:5px !important;
+}
+.mb10 {
+	margin-bottom:10px !important;
+}
+.mb20 {
+	margin-bottom:20px !important;
+}
+
+.ml5 {
+	margin-left:5px !important;
+}
+.ml10 {
+	margin-left:10px !important;
+}
+.ml20 {
+	margin-left:20px !important;
+}
+
+.mr0 {
+	margin-right:0px !important;
+}
+.mr5 {
+	margin-right:5px !important;
+}
+.mr10 {
+	margin-right:10px !important;
+}
+.mr20 {
+	margin-right:20px !important;
+}
+
+.p10 {
+	padding:10px  !important;
+}
+.p15 {
+	padding:15px  !important;
+}
+.pt0 {
+	padding-top:0px !important;
+}
+.pt10 {
+	padding-top:10px !important;
+}
+.pr0 {
+	padding-right:0px !important;
+}
+.pl0 {
+	padding-left:0px !important;
+}
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right !important;
+}
+.center {
+	text-align: center;
+}
+.bold {
+	font-weight: bold !important;
+}
+.bar {
+	border-bottom:1px dashed #ccc;
+}
+
+.lh1 {
+	line-height: 1.3em !important;
+}
+
+img.full {
+	width: 100%;
+}
+img.half {
+	width: 50%;
+}
+
+.hide {
+	display: none;
+}
+
+
+/* =Layout
+-------------------------------------------------------------- */
+
+body {
+	padding:10px 0;
+}
+
+nav {
+	padding:10px;
+}
+nav li {
+	padding:10px 0;
+}
+nav li a {
+	font-weight: bold;
+}
+
+
+header {
+	margin:10px 0;
+	padding-left: 10px;
+	border-bottom: 1px solid #000;
+}
+header li {
+	display: inline-block;
+	margin: 0 3px 0 0;
+}
+header li a {
+	display: inline-block;
+	border-radius: 4px 4px 0 0;
+	background: #606060;
+	padding:6px 14px; 
+	color:#fff;
+}
+header li a.selected {
+	background: #000000;
+}
+
+.box {
+	padding: 10px;
+}
+
+.input-box {
+	border-bottom: 1px solid #666;
+}
+dl {
+	padding:20px;
+	margin-bottom:10px;
+	border-bottom: 1px dashed #CCC;
+}
+dl:last-child {
+	border:none;
+}
+dl dt,
+dl dd {
+	display: block;
+}
+dl dt {
+	margin-bottom:5px;
+	font-size: 14px;
+}
+dl dt span {
+	font-size: 12px;
+}
+
+
+.output textarea {
+	margin-left:10%;
+}
+
+.w_half {
+	width:48%;
+	margin-right: 1.5%;
+}
+.w_min {
+	width:120px;
+	display: inline-block;
+}
+
+.float_left {
+	float:left;
+}
+.after_clear:after {
+	content: '';
+	display: block;
+	clear: left;
+}
+
+table {
+	width: 100%;
+	font-size: 14px;
+}
+
+h4 {
+	background: rgb(114, 186, 224);
+	padding:5px;
+}
